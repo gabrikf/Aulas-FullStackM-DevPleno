@@ -1,0 +1,8 @@
+.box{
+  background: green;
+  padding: 20px;
+  margin: 20px;
+}
+.box span{
+  background: white;
+}

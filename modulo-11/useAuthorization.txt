@@ -1,0 +1,1 @@
+Usei a parte da pratica no modulo 10, usei Authorization para poder fazer o CRUD na REST API e GraphQl API

@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken')
 const db = require('../db')
 const Product = require('../models/product')(db)
 
@@ -56,7 +57,7 @@ const patch = async (req, res) => {
     })
   }
 
-  const create = async (req, res) => {
+  const create = async (req, res) => { 
     const { product, price } = req.body
     await Product.create([product, price])
     res.send({
@@ -73,18 +74,19 @@ const patch = async (req, res) => {
     })
   }
 
-  const getAll = async (req, res) => {
-    let products = null
-    if (req.query.categoryId) {
-      products = await Product.findAllByCategory(req.query.categoryId)
-    }
-    else {
-      products =  await Product.findAll()
-    }
-    res.send({
-      products
-    })
+const getAll = async (req, res) => {
+  // quem mandou essa requisição?
+  console.log(res.locals.user)
+  let products = null
+  if (req.query.categoryId) {
+    products = await Product.findAllByCategory(req.query.categoryId)
+  } else {
+    products =  await Product.findAll()
   }
+  res.send({
+    products
+  })
+}
 
   const getById = async (req, res) => {
     const product = await Product.findById(req.params.id)

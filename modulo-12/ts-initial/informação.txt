@@ -1,0 +1,4 @@
+Para compilar automaticamente digitar no terminal:  npx tsc src/index.ts --outDir dist/ --watch
+Para rodar o express por exemplo no ts, é necessário usar isso que se acha no site da microsoft: npm install --save-dev @types/express
+Para gerar um tconfig.json(ira compilar automaticamente):  npx tsc --init --rootDir src --outDir dist --noImplicitAny true --allowJs true 
+npm run build && junto ao start

@@ -9,7 +9,9 @@ export class ProductService{
 
     const conn = await this.mysql.getConnection()
     const [results] = await conn.query('select * from products ')
+    //console.log('DataBase: ', results)
     const resultsPlain = JSON.parse(JSON.stringify(results))
+    //console.log('Plain ', resultsPlain)
     const products = resultsPlain.map(product => {
       const productEntity = new Product()
       productEntity.id = product.id
@@ -17,9 +19,7 @@ export class ProductService{
       productEntity.price = product.price
       return productEntity
     })
-    return [
-      products
-    ]
+    return products
   }
   async findById(id: string): Promise<Product>{
 
@@ -47,5 +47,4 @@ export class ProductService{
     await conn.query('delete from products where id = ? limit 1', [id])
     return true
   }
-
 }

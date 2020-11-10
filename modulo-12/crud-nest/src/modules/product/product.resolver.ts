@@ -17,7 +17,7 @@ export class ProductResolver {
       productToReturn.price = product.price
       return productToReturn
     })
-    console.log(productsToReturn)
+    //console.log(productsToReturn)
     return productsToReturn
   }
 
